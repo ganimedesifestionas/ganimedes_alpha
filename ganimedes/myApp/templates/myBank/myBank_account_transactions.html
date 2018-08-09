@@ -1,0 +1,51 @@
+<!doctype html> {% include 'myBank/myBank__styles.html' %} {% include 'myBank/myBank_menu.html' %}
+<html>
+
+<body>
+    {% if error %}
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+    {% else %}
+    <div class="row col-md-6 offset-md-2">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Transaction List</h4>
+                <table class="table">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>#</th>
+                            <th>Transaction Type</th>
+                            <th>Currency</th>
+                            <th>Amount</th>
+                            <th>Value Date</th>
+                            <th>Type</th>
+                            <th>Transaction ID</th>
+                            <th>Booking Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for val in transactions %}
+
+                        <tr>
+                            <th scope="row">{{loop.index}}</th>
+                            <td>{{val.type}}</td>
+                            <td>{{val.dcInd}}</td>
+                            <td>{{val.valueDate}}</td>
+                            <td>{{val.description}}</td>
+                            <td>{{val.id}}</td>
+                            <td>{{val.postingDate}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">Statement</h4>
+                @statement@
+            </div>
+        </div>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">myBank</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/myBank_subscriptions">Subscriptions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/myBank_customers">Customers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('myBank.myBank_accounts') }}">Accounts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('myBank.myBank_transactions') }}">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('myBank.myBank_payments') }}">Payments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/myBank_bocauth">authenticate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/myBank_authenticate">Manage Access Token</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/myBank_login">login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/myBank_signup">signup</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('myBank.myBank_about') }}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('myBank.myBank_contact') }}">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>

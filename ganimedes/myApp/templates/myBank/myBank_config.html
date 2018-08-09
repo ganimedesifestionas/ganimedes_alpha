@@ -1,0 +1,71 @@
+<!doctype html> {% include 'myBank/myBank__styles.html' %} {% include 'myBank/myBank_menu.html' %}
+<html>
+
+<body>
+    {% if error %}
+    <div class="alert alert-danger">
+        {{ error }}
+    </div>
+    {% else %}
+    {% endif %} {% if not error %}
+    <div class="row">
+        <div class="col-md-6 offset-md-2">
+            <div class="card card-outline-secondary">
+                <div class="card-header">
+                    <h3 class="mb-0">configuration</h3>
+                </div>
+                <div class="card-block">
+                    <form class="form-horizontal" action="/configuration" method="POST">
+                        <fieldset>
+                            <!-- Form Name -->
+                            <legend>Configuration</legend>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="amount">Amount</label>
+                                <div class="col-md-6">
+                                    <input id="amount" name="amount" type="text" placeholder="156.87" class="form-control input-md" required="">
+                                </div>
+                            </div>
+                            <!-- Select Basic -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="account_id">From Account</label>
+                                <div class="col-md-6">
+                                    <select id="account_id" name="account_id" class="form-control">
+                                        {% for val in accounts %}
+                                        <option value="{{val.accountId}}">{{val.accountId}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="beneficiary">Beneficiary Account</label>
+                                <div class="col-md-6">
+                                    <input id="beneficiary" name="beneficiary" type="text" placeholder="FI1350001520003240081" class="form-control input-md" required="">
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="name">Beneficiary Name</label>
+                                <div class="col-md-6">
+                                    <input id="name" name="name" type="text" placeholder="John Smith" class="form-control input-md" required="">
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="message">Message for the Beneficiary</label>
+                                <div class="col-md-6">
+                                    <input id="message" name="message" type="text" placeholder="This is an example message!" class="form-control input-md" required="">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary btn-lg">Make Payment!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+ {% include 'mybank/myBank__styles.html' %}{% include 'mybank/myBank_menu.html' %}
+    <html>
+    <body>
+        {%if error %}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+        {% else %}
+        <div class="row col-md-6 offset-md-2">
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Account list</h4>
+                    <table class="table">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th>#</th>
+                                <th>Product</th>
+                                <th>Account</th>
+                                <th>Country</th>
+                                <th>Booked Balance</th>
+                                <th>Value Date Balance</th>
+                                <th>Currency</th>
+                                <th>Available Balance</th>
+                                <th>Owner Name</th>
+                                <th>Account Details</th>
+                                <th>Transaction List</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for val in accounts %}
+                            <tr>
+                                <th scope="row">{{loop.index}}</th>
+                                <td>{{val.bankId}}</td>
+                                <td>{{val.accountId}}</td>
+                                <td>{{val.accountType}}</td>
+                                <td>bookedBalance</td>
+                                <td>valueDatedBalance</td>
+                                <td>{{val.currency}}</td>
+                                <td>val.availableBalance</td>
+                                <td>{{val.accountName}}</td>
+                                <td><a href="{{ url_for('myBank.myBank_account_details') }}?account_id={{val.accountId}}">Account Details</a>
+                                <td><a href="{{ url_for('myBank.myBank_account_transactions') }}?account_id={{val.accountId}}">Transactions</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </body>
+
+</html>

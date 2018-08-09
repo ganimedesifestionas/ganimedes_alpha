@@ -1,0 +1,1 @@
+from . openbanking_services_functions import getAccounts_Service

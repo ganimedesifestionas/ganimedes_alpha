@@ -1,0 +1,40 @@
+<!doctype html> {% include 'myBank/myBank__styles.html' %} {% include 'myBank/myBank__styles.html' %}
+<html>
+
+<body>
+    {% if response %}
+    <div class="alert alert-warning">
+        <p class="text-center"><strong>{{response}}</strong></p>
+    </div>
+    {% else %}
+    <div class="alert alert-success">
+        <p class="text-center"><strong>You already have an access token, click generate to get a new one!</strong></p>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card card-outline-secondary">
+                <div class="card-header">
+                    <h3 class="mb-0">xxxxGenerate Access Token</h3>
+                </div>
+                <div class="card-block">
+                    <form class="form" role="form" autocomplete="off" id="formLogin" action="/authenticate" method="POST">
+                        <button type="submit" class="btn btn-success btn-lg">xxxxGenerate!</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card card-outline-secondary">
+                <div class="card-header">
+                    <h3 class="mb-0">xxxxRemove Access Token</h3>
+                </div>
+                <div class="card-block">
+                    <form class="form" role="form" autocomplete="off" id="formLogin" action="/revoke" method="POST">
+                        <button type="submit" class="btn btn-danger btn-lg">xxxRemove!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

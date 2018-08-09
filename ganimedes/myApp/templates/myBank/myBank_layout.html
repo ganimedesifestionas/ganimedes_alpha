@@ -1,0 +1,19 @@
+﻿<!doctype html>
+ {% include 'mybank/myBank__styles.html' %}{% include 'mybank/myBank_menu.html' %}
+<html>
+
+<body>
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} - MyBank-ganimedes open banking solution</p>
+        </footer>
+    </div>
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
